@@ -9,8 +9,7 @@ namespace DataAccess.Models
 {
     public class City
     {
-        [Key]
-        [MaxLength(100)]
+  
         public string Name { get; set; }
     }
 }

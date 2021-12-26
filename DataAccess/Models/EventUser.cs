@@ -10,14 +10,15 @@ namespace DataAccess.Models
 {
     public class EventUser
     {
-        [Key]
+        
         public int Id { get; set; }
-        [ForeignKey(nameof(Event))]
         public int EventId { get; set; }
+        public int UserId { get; set; }
+
+/*        [ForeignKey(nameof(Event))]
         public virtual Event Event { get; set; }
 
         [ForeignKey(nameof(User))]
-        public int UserId { get; set; }
-        public virtual User User { get; set; }
+        public virtual User User { get; set; }*/
     }
 }

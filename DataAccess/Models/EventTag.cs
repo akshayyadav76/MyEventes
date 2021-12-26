@@ -10,16 +10,16 @@ namespace DataAccess.Models
 {
     public class EventTag
     {
-        [Key]
+    
         public int Id { get; set; }
-
-        [ForeignKey(nameof(Event))]
         public int EventId { get; set; }
+        public string TagId { get; set; }
+
+    /*    [ForeignKey(nameof(Event))]
         public virtual Event Event { get; set; }
 
         [ForeignKey(nameof(Tag))]
         [MaxLength(100)]
-        public string TagId { get; set; }
-        public virtual Tag Tag { get; set; }
+        public virtual Tag Tag { get; set; }*/
     }
 }

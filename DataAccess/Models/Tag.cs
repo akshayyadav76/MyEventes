@@ -9,8 +9,7 @@ namespace DataAccess.Models
 {
     public class Tag
     {
-        [Key]
-        [MaxLength(100)]
+      
         public string TagName {get;set;}
     }
 }

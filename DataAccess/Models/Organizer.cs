@@ -10,11 +10,11 @@ namespace DataAccess.Models
 {
     public class Organizer
     {
-        [Key]
+    /*    [Key]
         [ForeignKey(nameof(User))]
+        public virtual User User { get; set; }*/
         public int UserId { get; set; }
-        public virtual User User { get; set; }
-        [Required]
+
         public string Passward { get; set; }
     }
 }
