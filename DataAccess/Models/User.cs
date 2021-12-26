@@ -17,7 +17,7 @@ namespace DataAccess.Models
         public string FirstName { get; set; }
         [Required]
         [MaxLength(200)]
-        public string LastName { get; set; }
+        public string LastName { get; set; } //same comment
         [Required]
         [Precision(3)]
         public DateTime Birthdate { get; set; }
