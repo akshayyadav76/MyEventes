@@ -17,6 +17,10 @@ namespace DataAccess.EntityConfigrations
             builder.HasKey(o => o.UserId);
             builder.HasOne<User>().WithOne().HasForeignKey<Organizer>(e=>e.UserId);
             builder.Property(o => o.Passward).IsUnicode(false).IsRequired(true).HasMaxLength(50);
+
+            builder.HasData(
+                new Organizer { Passward = "mypw1", UserId = 1 },
+                new Organizer { Passward = "somepw2", UserId = 2 });
         }
     }
 }

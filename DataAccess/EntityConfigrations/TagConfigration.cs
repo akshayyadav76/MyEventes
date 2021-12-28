@@ -15,6 +15,13 @@ namespace DataAccess.EntityConfigrations
         public void Configure(EntityTypeBuilder<Tag> builder)
         {
             builder.HasKey(c => c.TagName);
+            builder.HasData(
+               new Tag {TagName = "socialize"},
+               new Tag { TagName = "learn" },
+               new Tag { TagName = "connect" },
+               new Tag { TagName = "dinner" },
+               new Tag { TagName = "breakfast" }
+                );
         }
     }
 }

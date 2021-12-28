@@ -4,6 +4,7 @@ using DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(EventsContext))]
-    partial class EventsContextModelSnapshot : ModelSnapshot
+    [Migration("20211226122541_SeedTagOrCityData")]
+    partial class SeedTagOrCityData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -100,20 +102,6 @@ namespace DataAccess.Migrations
                     b.HasIndex("OrganizerId");
 
                     b.ToTable("Events");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            DatePlanned = new DateTime(2022, 2, 1, 17, 30, 0, 0, DateTimeKind.Unspecified),
-                            Description = "You are new in town? Join us and meet like-minded new people!",
-                            Image = "path/to/image.jpg",
-                            LocationId = 1,
-                            MaxParticipants = 20,
-                            MinAge = 16,
-                            Name = "New in town",
-                            OrganizerId = 1
-                        });
                 });
 
             modelBuilder.Entity("DataAccess.Models.EventTag", b =>
@@ -132,26 +120,6 @@ namespace DataAccess.Migrations
                     b.HasIndex("TagId");
 
                     b.ToTable("EventTag");
-
-                    b.HasData(
-                        new
-                        {
-                            EventId = 1,
-                            TagId = "socialize",
-                            Id = 1
-                        },
-                        new
-                        {
-                            EventId = 1,
-                            TagId = "connect",
-                            Id = 2
-                        },
-                        new
-                        {
-                            EventId = 1,
-                            TagId = "dinner",
-                            Id = 3
-                        });
                 });
 
             modelBuilder.Entity("DataAccess.Models.EventUser", b =>
@@ -170,20 +138,6 @@ namespace DataAccess.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("EventUser");
-
-                    b.HasData(
-                        new
-                        {
-                            EventId = 1,
-                            UserId = 3,
-                            Id = 13
-                        },
-                        new
-                        {
-                            EventId = 1,
-                            UserId = 4,
-                            Id = 14
-                        });
                 });
 
             modelBuilder.Entity("DataAccess.Models.Location", b =>
@@ -225,67 +179,6 @@ namespace DataAccess.Migrations
                     b.HasIndex("CityName");
 
                     b.ToTable("Location");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CityName = "Munich",
-                            HouseNumber = "5A",
-                            PostalCode = "80135",
-                            Street = "Beerstreet",
-                            Title = "Beerhall"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CityName = "Munich",
-                            HouseNumber = "10",
-                            PostalCode = "81035",
-                            Street = "Beerstreet"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CityName = "Munich",
-                            HouseNumber = "101",
-                            PostalCode = "80031",
-                            Street = "Gardenstreet"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CityName = "Berlin",
-                            HouseNumber = "12",
-                            PostalCode = "12141",
-                            Street = "Veggiestreet",
-                            Title = "The Green One"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            CityName = "Berlin",
-                            HouseNumber = "1",
-                            PostalCode = "11011",
-                            Street = "Park Plaza"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            CityName = "Cologne",
-                            HouseNumber = "3",
-                            PostalCode = "12345",
-                            Street = "Carnevalstreet",
-                            Title = "Partyhouse"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            CityName = "Hamburg",
-                            HouseNumber = "18",
-                            PostalCode = "72657",
-                            Street = "Some"
-                        });
                 });
 
             modelBuilder.Entity("DataAccess.Models.Organizer", b =>
@@ -302,18 +195,6 @@ namespace DataAccess.Migrations
                     b.HasKey("UserId");
 
                     b.ToTable("Organizer");
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = 1,
-                            Passward = "mypw1"
-                        },
-                        new
-                        {
-                            UserId = 2,
-                            Passward = "somepw2"
-                        });
                 });
 
             modelBuilder.Entity("DataAccess.Models.Tag", b =>
@@ -381,40 +262,6 @@ namespace DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("User");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Birthdate = new DateTime(1989, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "max@test.com",
-                            FirstName = "Max",
-                            LastName = "Schwarz"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Birthdate = new DateTime(1988, 10, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "manuel@test.com",
-                            FirstName = "Manuel",
-                            LastName = "Lorenz"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Birthdate = new DateTime(1986, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "julie@test.com",
-                            FirstName = "Julie",
-                            LastName = "Barnes"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Birthdate = new DateTime(1982, 11, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "michael@test.com",
-                            FirstName = "Michael",
-                            LastName = "Smith"
-                        });
                 });
 
             modelBuilder.Entity("DataAccess.Models.Event", b =>

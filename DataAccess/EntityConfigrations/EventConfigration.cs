@@ -30,6 +30,19 @@ namespace DataAccess.EntityConfigrations
                .HasForeignKey(e => e.OrganizerId)
                .OnDelete(DeleteBehavior.NoAction);
 
+
+            builder.HasData(
+                new Event { 
+                    Id =1,
+                    Name = "New in town",
+                    DatePlanned = new DateTime(2022 ,02, 01, 17,30,00),
+                    Image ="path/to/image.jpg",
+                    Description =
+                    "You are new in town? Join us and meet like-minded new people!",
+                   MaxParticipants = 20,
+                   MinAge= 16,
+                  LocationId  =1,
+                   OrganizerId= 1 }) ;
             
 
         }

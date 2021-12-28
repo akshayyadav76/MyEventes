@@ -18,6 +18,10 @@ namespace DataAccess.EntityConfigrations
                 .WithMany().HasForeignKey(e => e.EventId);
             builder.HasOne<User>()
                 .WithMany().HasForeignKey(e => e.UserId);
+
+            builder.HasData(
+                 new EventUser {Id =13, EventId = 1, UserId = 3 },
+                 new EventUser { Id = 14, EventId = 1, UserId = 4 });
         }
     }
 }

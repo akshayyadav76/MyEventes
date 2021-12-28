@@ -4,6 +4,7 @@ using DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(EventsContext))]
-    partial class EventsContextModelSnapshot : ModelSnapshot
+    [Migration("20211226131950_SeedUserOrganizerEventData")]
+    partial class SeedUserOrganizerEventData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -132,26 +134,6 @@ namespace DataAccess.Migrations
                     b.HasIndex("TagId");
 
                     b.ToTable("EventTag");
-
-                    b.HasData(
-                        new
-                        {
-                            EventId = 1,
-                            TagId = "socialize",
-                            Id = 1
-                        },
-                        new
-                        {
-                            EventId = 1,
-                            TagId = "connect",
-                            Id = 2
-                        },
-                        new
-                        {
-                            EventId = 1,
-                            TagId = "dinner",
-                            Id = 3
-                        });
                 });
 
             modelBuilder.Entity("DataAccess.Models.EventUser", b =>
@@ -170,20 +152,6 @@ namespace DataAccess.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("EventUser");
-
-                    b.HasData(
-                        new
-                        {
-                            EventId = 1,
-                            UserId = 3,
-                            Id = 13
-                        },
-                        new
-                        {
-                            EventId = 1,
-                            UserId = 4,
-                            Id = 14
-                        });
                 });
 
             modelBuilder.Entity("DataAccess.Models.Location", b =>
